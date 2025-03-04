@@ -1,0 +1,10 @@
+name: default
+channels:
+- conda-forge
+- nodefaults
+dependencies:
+- python ==3.12
+- pip
+- pip:
+  - nnunetv2>=2.6.0, <3
+
