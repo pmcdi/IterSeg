@@ -1,0 +1,17 @@
+[project]
+authors = ["Joshua Siraj <joshua.siraj@ryerson.ca>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "IterativeSegNet"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+preprocess = { cmd = "autopipeline --modalities 'CT,RTSTRUCT' --nnunet --read_yaml_label_names" }
+
+[dependencies]
+python = "==3.12"
+
+[pypi-dependencies]
+nnunetv2 = ">=2.6.0, <3"
+
