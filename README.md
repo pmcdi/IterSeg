@@ -6,14 +6,13 @@ By integrating `med-imgtools` for preprocessing and `nnUNet` for segmentation, *
 
 ## Install
 
-First install pixi [here](https://pixi.sh/latest/)
-
-Then run:
 ```console
-pixi install
+conda env create --name iterseg --file=environment.yml
+conda activate iterseg
 ```
+
 ```console
-pixi run pip install -e git+https://github.com/bhklab/med-imagetools.git@JoshuaSiraj/update_to_nnUnetv2#egg=med-imagetools
+pip install -e git+https://github.com/bhklab/med-imagetools.git@JoshuaSiraj/update_to_nnUnetv2#egg=med-imagetools
 ```
 
 ## Process  
@@ -21,5 +20,19 @@ pixi run pip install -e git+https://github.com/bhklab/med-imagetools.git@JoshuaS
 To run preprocessing, use the following command:  
 
 ```console
-pixi run preprocess INPUT_DIRECTORY OUTPUT_DIRECTORY --modalities MODALITY_LIST --roi_yaml_path CONFIG_FILE
+autopipeline \
+  [INPUT_DIRECTORY] \
+  [OUTPUT_DIRECTORY] \
+  --modalities [MODALITIES] \ # Default usage would be CT,RTSTRUCT
+  --nnunet \
+  --roi_yaml_path [CONFIG_PATH] \ # Example can be found in configs/roi_yaml_example.yaml
+  --read_yaml_label_names
 ```
+
+## Train
+
+You can find the scripts to plan and train an nnUNet model in the output directory provided by med-imagetools.
+
+## Prediction
+
+The prediction module can be found in `src/predict_nnunet.py`.
