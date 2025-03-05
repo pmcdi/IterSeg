@@ -8,6 +8,8 @@ import SimpleITK as sitk
 from nnunetv2.inference.predict_from_raw_data import nnUNetPredictor
 from nnunetv2.imageio.simpleitk_reader_writer import SimpleITKIO
 
+from loaders import read_dicom_series
+
 class nnUNetPredictorWrapper:
     """
     A wrapper class for nnUNetPredictor to facilitate prediction from a trained nnUNet model.
@@ -39,6 +41,21 @@ class nnUNetPredictorWrapper:
                 use_folds=folds
         )
 
+    def _format_output(self, img: sitk.Image, prediction: np.ndarray) -> Dict[str, sitk.Image]:
+        labels = self.dataset_info['labels']
+        data = {}
+
+        for label, idx in labels.items():
+            if idx == 0:
+                continue
+
+            label_image = sitk.GetImageFromArray(np.where(prediction == idx, prediction, 0))
+            label_image.CopyInformation(img)
+
+            data[label] = label_image
+
+        return data
+    
     def predict_from_single_image(self, image_path: str) -> Dict[str, sitk.Image]:
         """
         Predicts segmentation masks from a single image.
@@ -53,27 +70,36 @@ class nnUNetPredictorWrapper:
         img, metadata = SimpleITKIO().read_images([image_path])
         prediction = self.predictor.predict_single_npy_array(img, metadata, None, None, False)
 
-        labels = self.dataset_info['labels']
-        data = {}
+        return self._format_output(sitk.ReadImage(image_path), prediction)
 
-        for label, idx in labels.items():
-            if idx == 0:
-                continue
+    def predict_single_dicom(self, image_path: str) -> Dict[str, sitk.Image]:
+        """
+        Predicts segmentation masks from a single dicom.
 
-            label_image = sitk.GetImageFromArray(np.where(prediction == idx, prediction, 0))
+        Args:
+            image_path (str): The file path to the input dicom.
 
-            label_image.SetSpacing(metadata['sitk_stuff']['spacing'])
-            label_image.SetOrigin(metadata['sitk_stuff']['origin'])
-            label_image.SetDirection(metadata['sitk_stuff']['direction'])
+        Returns:
+            Dict[str, sitk.Image]: A dictionary where keys are label names and values are the corresponding 
+                                   SimpleITK images representing the segmentation masks.
+        """
+        img = read_dicom_series(image_path)
+        metadata = {'spacing': list(np.abs(img.GetSpacing()[::-1]))}
 
-            data[label] = label_image
+        prediction = self.predictor.predict_single_npy_array(
+            sitk.GetArrayFromImage(img)[None], 
+            metadata, 
+            None, 
+            None, 
+            False
+        )
 
-        return data
+        return self._format_output(img, prediction)
     
 if __name__ == '__main__':
     predictor = nnUNetPredictorWrapper(
         model_training_output_dir='nnunet_trained/iaslc_iter_1/nnUNetTrainer__nnUNetPlans__3d_fullres',
     )
 
-    prediction = predictor.predict_from_single_image('')
+    prediction = predictor.predict_single_dicom('')
     print(prediction)

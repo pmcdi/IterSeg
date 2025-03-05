@@ -3,6 +3,8 @@
 .pixi
 *.egg-info
 
+*.pyc
+
 data/** 
 src/med-imagetools/
 
