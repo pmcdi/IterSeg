@@ -1,5 +1,5 @@
 [project]
-authors = ["Joshua Siraj <joshua.siraj@ryerson.ca>"]
+authors = ["Joshua Siraj <joshua.siraj@uhn.ca>"]
 channels = ["conda-forge"]
 description = "Add a short description here"
 name = "IterativeSegNet"

@@ -72,7 +72,7 @@ class nnUNetPredictorWrapper:
     
 if __name__ == '__main__':
     predictor = nnUNetPredictorWrapper(
-        model_training_output_dir='',
+        model_training_output_dir='nnunet_trained/iaslc_iter_1/nnUNetTrainer__nnUNetPlans__3d_fullres',
     )
 
     prediction = predictor.predict_from_single_image('')

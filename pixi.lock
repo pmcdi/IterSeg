@@ -12,20 +12,29 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-h4bc722e_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2025.1.31-hbcca054_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.43-h712a8e2_4.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libblas-3.9.0-31_h59b9bed_openblas.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libcblas-3.9.0-31_he106b2a_openblas.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.6.4-h5888daf_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libffi-3.4.6-h2dba641_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-14.2.0-h767d61c_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-ng-14.2.0-h69a702a_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran-14.2.0-h69a702a_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran5-14.2.0-hf1ad2bd_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-14.2.0-h767d61c_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/liblapack-3.9.0-31_h7ac8fdf_openblas.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.6.4-hb9d3cd8_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-devel-5.6.4-hb9d3cd8_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libnsl-2.0.1-hd590300_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libopenblas-0.3.29-pthreads_h94d23a6_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libsqlite-3.49.1-hee588c1_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-14.2.0-h8f9b012_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.38.1-h0b41bf4_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.3.1-hb9d3cd8_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h2d0b736_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/numpy-2.2.3-py312h72c5963_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.4.1-h7b32b05_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.12.0-hab00c5b_0_cpython.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/python_abi-3.12-5_cp312.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.2-h8c095d6_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h4845f30_101.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025a-h78e105d_0.conda
@@ -68,7 +77,6 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/43/b2/dc384197be44e2a640bb43311850e23c2c30f3b82ce7c8cdabbf0e53045e/nibabel-5.3.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9d/4c/d39865db5bc7aee47da3bd3c7ef8497d52e83e6d0f2a56c3e4c7b28d6fab/nnunetv2-2.6.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/7d/9c/6b671dd3fb67d7e7da93cb76b7c5277743f310a216b7856bb18776bb3371/numexpr-2.10.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/39/04/78d2e7402fb479d893953fb78fa7045f7deb635ec095b6b4f0260223091a/numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/ae/71/1c91302526c45ab494c23f61c7a84aa568b8c1f9d196efa5993957faf906/nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/67/42/f4f60238e8194a3106d06a058d494b18e006c10bb2b915655bd9f6ea4cb1/nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/2c/14/91ae57cd4db3f9ef7aa99f4019cfa8d54cb4caa7e00975df6467e9725a9f/nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl
@@ -117,8 +125,6 @@ packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
   sha256: fe51de6107f9edc7aa4f786a70f4a883943bc9d39b3bb7307c04c41410990726
   md5: d7c89558ba9fa0495403155b64376d81
-  arch: x86_64
-  platform: linux
   license: None
   purls: []
   size: 2562
@@ -132,8 +138,6 @@ packages:
   - libgomp >=7.5.0
   constrains:
   - openmp_impl 9999
-  arch: x86_64
-  platform: linux
   license: BSD-3-Clause
   license_family: BSD
   purls: []
@@ -221,8 +225,6 @@ packages:
   depends:
   - __glibc >=2.17,<3.0.a0
   - libgcc-ng >=12
-  arch: x86_64
-  platform: linux
   license: bzip2-1.0.6
   license_family: BSD
   purls: []
@@ -231,8 +233,6 @@ packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2025.1.31-hbcca054_0.conda
   sha256: bf832198976d559ab44d6cdb315642655547e26d826e34da67cbee6624cda189
   md5: 19f3a56f68d2fd06c516076bff482c52
-  arch: x86_64
-  platform: linux
   license: ISC
   purls: []
   size: 158144
@@ -646,13 +646,44 @@ packages:
   - __glibc >=2.17,<3.0.a0
   constrains:
   - binutils_impl_linux-64 2.43
-  arch: x86_64
-  platform: linux
   license: GPL-3.0-only
   license_family: GPL
   purls: []
   size: 671240
   timestamp: 1740155456116
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libblas-3.9.0-31_h59b9bed_openblas.conda
+  build_number: 31
+  sha256: 9839fc4ac0cbb0aa3b9eea520adfb57311838959222654804e58f6f2d1771db5
+  md5: 728dbebd0f7a20337218beacffd37916
+  depends:
+  - libopenblas >=0.3.29,<0.3.30.0a0
+  - libopenblas >=0.3.29,<1.0a0
+  constrains:
+  - liblapacke =3.9.0=31*_openblas
+  - liblapack =3.9.0=31*_openblas
+  - blas =2.131=openblas
+  - mkl <2025
+  - libcblas =3.9.0=31*_openblas
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 16859
+  timestamp: 1740087969120
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libcblas-3.9.0-31_he106b2a_openblas.conda
+  build_number: 31
+  sha256: ede8545011f5b208b151fe3e883eb4e31d495ab925ab7b9ce394edca846e0c0d
+  md5: abb32c727da370c481a1c206f5159ce9
+  depends:
+  - libblas 3.9.0 31_h59b9bed_openblas
+  constrains:
+  - liblapacke =3.9.0=31*_openblas
+  - liblapack =3.9.0=31*_openblas
+  - blas =2.131=openblas
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 16796
+  timestamp: 1740087984429
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.6.4-h5888daf_0.conda
   sha256: 56541b98447b58e52d824bd59d6382d609e11de1f8adf20b23143e353d2b8d26
   md5: db833e03127376d461e1e13e76f09b6c
@@ -661,8 +692,6 @@ packages:
   - libgcc >=13
   constrains:
   - expat 2.6.4.*
-  arch: x86_64
-  platform: linux
   license: MIT
   license_family: MIT
   purls: []
@@ -674,8 +703,6 @@ packages:
   depends:
   - __glibc >=2.17,<3.0.a0
   - libgcc >=13
-  arch: x86_64
-  platform: linux
   license: MIT
   license_family: MIT
   purls: []
@@ -690,8 +717,6 @@ packages:
   constrains:
   - libgomp 14.2.0 h767d61c_2
   - libgcc-ng ==14.2.0=*_2
-  arch: x86_64
-  platform: linux
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
   purls: []
@@ -702,33 +727,67 @@ packages:
   md5: a2222a6ada71fb478682efe483ce0f92
   depends:
   - libgcc 14.2.0 h767d61c_2
-  arch: x86_64
-  platform: linux
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
   purls: []
   size: 53758
   timestamp: 1740240660904
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran-14.2.0-h69a702a_2.conda
+  sha256: e05263e8960da03c341650f2a3ffa4ccae4e111cb198e8933a2908125459e5a6
+  md5: fb54c4ea68b460c278d26eea89cfbcc3
+  depends:
+  - libgfortran5 14.2.0 hf1ad2bd_2
+  constrains:
+  - libgfortran-ng ==14.2.0=*_2
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  purls: []
+  size: 53733
+  timestamp: 1740240690977
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran5-14.2.0-hf1ad2bd_2.conda
+  sha256: c17b7cf3073a1f4e1f34d50872934fa326346e104d3c445abc1e62481ad6085c
+  md5: 556a4fdfac7287d349b8f09aba899693
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14.2.0
+  constrains:
+  - libgfortran 14.2.0
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  purls: []
+  size: 1461978
+  timestamp: 1740240671964
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-14.2.0-h767d61c_2.conda
   sha256: 1a3130e0b9267e781b89399580f3163632d59fe5b0142900d63052ab1a53490e
   md5: 06d02030237f4d5b3d9a7e7d348fe3c6
   depends:
   - __glibc >=2.17,<3.0.a0
-  arch: x86_64
-  platform: linux
   license: GPL-3.0-only WITH GCC-exception-3.1
   license_family: GPL
   purls: []
   size: 459862
   timestamp: 1740240588123
+- conda: https://conda.anaconda.org/conda-forge/linux-64/liblapack-3.9.0-31_h7ac8fdf_openblas.conda
+  build_number: 31
+  sha256: f583661921456e798aba10972a8abbd9d33571c655c1f66eff450edc9cbefcf3
+  md5: 452b98eafe050ecff932f0ec832dd03f
+  depends:
+  - libblas 3.9.0 31_h59b9bed_openblas
+  constrains:
+  - libcblas =3.9.0=31*_openblas
+  - liblapacke =3.9.0=31*_openblas
+  - blas =2.131=openblas
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 16790
+  timestamp: 1740087997375
 - conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.6.4-hb9d3cd8_0.conda
   sha256: cad52e10319ca4585bc37f0bc7cce99ec7c15dc9168e42ccb96b741b0a27db3f
   md5: 42d5b6a0f30d3c10cd88cb8584fda1cb
   depends:
   - __glibc >=2.17,<3.0.a0
   - libgcc >=13
-  arch: x86_64
-  platform: linux
   license: 0BSD
   purls: []
   size: 111357
@@ -740,8 +799,6 @@ packages:
   - __glibc >=2.17,<3.0.a0
   - libgcc >=13
   - liblzma 5.6.4 hb9d3cd8_0
-  arch: x86_64
-  platform: linux
   license: 0BSD
   purls: []
   size: 378821
@@ -751,13 +808,26 @@ packages:
   md5: 30fd6e37fe21f86f4bd26d6ee73eeec7
   depends:
   - libgcc-ng >=12
-  arch: x86_64
-  platform: linux
   license: LGPL-2.1-only
   license_family: GPL
   purls: []
   size: 33408
   timestamp: 1697359010159
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libopenblas-0.3.29-pthreads_h94d23a6_0.conda
+  sha256: cc5389ea254f111ef17a53df75e8e5209ef2ea6117e3f8aced88b5a8e51f11c4
+  md5: 0a4d0252248ef9a0f88f2ba8b8a08e12
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libgfortran
+  - libgfortran5 >=14.2.0
+  constrains:
+  - openblas >=0.3.29,<0.3.30.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 5919288
+  timestamp: 1739825731827
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libsqlite-3.49.1-hee588c1_1.conda
   sha256: 7a09eef804ef7cf4d88215c2297eabb72af8ad0bd5b012060111c289f14bbe7d
   md5: 73cea06049cc4174578b432320a003b8
@@ -765,19 +835,26 @@ packages:
   - __glibc >=2.17,<3.0.a0
   - libgcc >=13
   - libzlib >=1.3.1,<2.0a0
-  arch: x86_64
-  platform: linux
   license: Unlicense
   purls: []
   size: 915956
   timestamp: 1739953155793
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-14.2.0-h8f9b012_2.conda
+  sha256: 8f5bd92e4a24e1d35ba015c5252e8f818898478cb3bc50bd8b12ab54707dc4da
+  md5: a78c856b6dc6bf4ea8daeb9beaaa3fb0
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc 14.2.0 h767d61c_2
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  purls: []
+  size: 3884556
+  timestamp: 1740240685253
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.38.1-h0b41bf4_0.conda
   sha256: 787eb542f055a2b3de553614b25f09eefb0a0931b0c87dbcce6efdfd92f04f18
   md5: 40b61aab5c7ba9ff276c41cfffe6b80b
   depends:
   - libgcc-ng >=12
-  arch: x86_64
-  platform: linux
   license: BSD-3-Clause
   license_family: BSD
   purls: []
@@ -791,8 +868,6 @@ packages:
   - libgcc >=13
   constrains:
   - zlib 1.3.1 *_2
-  arch: x86_64
-  platform: linux
   license: Zlib
   license_family: Other
   purls: []
@@ -850,8 +925,6 @@ packages:
   depends:
   - __glibc >=2.17,<3.0.a0
   - libgcc >=13
-  arch: x86_64
-  platform: linux
   license: X11 AND BSD-3-Clause
   purls: []
   size: 891641
@@ -973,11 +1046,26 @@ packages:
   requires_dist:
   - numpy>=1.23.0
   requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/39/04/78d2e7402fb479d893953fb78fa7045f7deb635ec095b6b4f0260223091a/numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-  name: numpy
-  version: 2.2.3
-  sha256: 3b787adbf04b0db1967798dba8da1af07e387908ed1553a0d6e74c084d1ceafe
-  requires_python: '>=3.10'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/numpy-2.2.3-py312h72c5963_0.conda
+  sha256: e05f689807e11a11871b9072b7443d6f2bf2bae3871d5258d787c6e182a7eaec
+  md5: d117e16d71afa469ea26c3d6896291da
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libblas >=3.9.0,<4.0a0
+  - libcblas >=3.9.0,<4.0a0
+  - libgcc >=13
+  - liblapack >=3.9.0,<4.0a0
+  - libstdcxx >=13
+  - python >=3.12,<3.13.0a0
+  - python_abi 3.12.* *_cp312
+  constrains:
+  - numpy-base <0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/numpy?source=hash-mapping
+  size: 8458232
+  timestamp: 1739426128240
 - pypi: https://files.pythonhosted.org/packages/ae/71/1c91302526c45ab494c23f61c7a84aa568b8c1f9d196efa5993957faf906/nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl
   name: nvidia-cublas-cu12
   version: 12.4.5.8
@@ -1057,8 +1145,6 @@ packages:
   - __glibc >=2.17,<3.0.a0
   - ca-certificates
   - libgcc >=13
-  arch: x86_64
-  platform: linux
   license: Apache-2.0
   license_family: Apache
   purls: []
@@ -1269,8 +1355,6 @@ packages:
   - xz >=5.2.6,<6.0a0
   constrains:
   - python_abi 3.12.* *_cp312
-  arch: x86_64
-  platform: linux
   license: Python-2.0
   purls: []
   size: 32123473
@@ -1287,6 +1371,17 @@ packages:
   version: 3.0.24.1
   sha256: 4e537b9c3c582e0a19cd89791634da5ff48f1d61eeee633bf6e806c7bed10aba
   requires_python: '>=3.7'
+- conda: https://conda.anaconda.org/conda-forge/linux-64/python_abi-3.12-5_cp312.conda
+  build_number: 5
+  sha256: d10e93d759931ffb6372b45d65ff34d95c6000c61a07e298d162a3bc2accebb0
+  md5: 0424ae29b104430108f5218a66db7260
+  constrains:
+  - python 3.12.* *_cpython
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 6238
+  timestamp: 1723823388266
 - pypi: https://files.pythonhosted.org/packages/eb/38/ac33370d784287baa1c3d538978b5e2ea064d4c1b93ffbd12826c190dd10/pytz-2025.1-py2.py3-none-any.whl
   name: pytz
   version: '2025.1'
@@ -1302,8 +1397,6 @@ packages:
   depends:
   - libgcc >=13
   - ncurses >=6.5,<7.0a0
-  arch: x86_64
-  platform: linux
   license: GPL-3.0-only
   license_family: GPL
   purls: []
@@ -1639,8 +1732,6 @@ packages:
   depends:
   - libgcc-ng >=12
   - libzlib >=1.2.13,<2.0.0a0
-  arch: x86_64
-  platform: linux
   license: TCL
   license_family: BSD
   purls: []
@@ -1760,8 +1851,6 @@ packages:
   - liblzma-devel 5.6.4 hb9d3cd8_0
   - xz-gpl-tools 5.6.4 hbcc6ac9_0
   - xz-tools 5.6.4 hb9d3cd8_0
-  arch: x86_64
-  platform: linux
   license: 0BSD AND LGPL-2.1-or-later AND GPL-2.0-or-later
   purls: []
   size: 23477
@@ -1773,8 +1862,6 @@ packages:
   - __glibc >=2.17,<3.0.a0
   - libgcc >=13
   - liblzma 5.6.4 hb9d3cd8_0
-  arch: x86_64
-  platform: linux
   license: 0BSD AND LGPL-2.1-or-later AND GPL-2.0-or-later
   purls: []
   size: 33285
@@ -1786,8 +1873,6 @@ packages:
   - __glibc >=2.17,<3.0.a0
   - libgcc >=13
   - liblzma 5.6.4 hb9d3cd8_0
-  arch: x86_64
-  platform: linux
   license: 0BSD AND LGPL-2.1-or-later
   purls: []
   size: 89735
