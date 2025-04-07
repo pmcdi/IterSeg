@@ -37,7 +37,7 @@ class nnUNetPredictorWrapper:
         )
         self.predictor.initialize_from_trained_model_folder(
                 model_training_output_dir,
-                checkpoint_name='checkpoint_final.pth',
+                checkpoint_name='checkpoint_best.pth',
                 use_folds=folds
         )
 
