@@ -5,11 +5,6 @@
 
 *.pyc
 
-data/** 
-src/med-imagetools/
-
-configs/**
-!configs/roi_yaml_example.yaml
 
 **.nii.gz
 
