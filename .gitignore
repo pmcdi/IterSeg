@@ -15,3 +15,5 @@ configs/**
 
 nnunet_trained/
 nnunet_trained.zip
+
+containers/**
