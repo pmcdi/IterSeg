@@ -13,5 +13,6 @@ configs/**
 
 **.nii.gz
 
-nnunet_trained/
-nnunet_trained.zip
+nnunet_trained*
+
+containers/**
