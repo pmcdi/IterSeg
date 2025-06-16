@@ -13,7 +13,7 @@ def extract_date(folder_name: str) -> datetime | None:
 
 def find_latest_date(dataset_id):
     dataset_path = dirs.RAWDATA / dataset_id
-    folders = [f for f in dataset_path.listdir() if f.isdir()]
+    folders = [f for f in dataset_path.iterdir() if f.is_dir()]
     latest_date = None
     for folder in folders:
         date = extract_date(folder.name)
@@ -31,6 +31,7 @@ def main():
     args = parser.parse_args()
 
     latest_date = find_latest_date(args.dataset_id)
+    print(f"[INFO] Latest date for {args.dataset_id} is {latest_date}")
     
     if dirs.PROCDATA / args.dataset_id / f"{latest_date}__{args.dataset_id}".is_dir():
         print(f"[INFO] Data already preprocessed for {args.dataset_id} on {latest_date}")
@@ -39,3 +40,5 @@ def main():
         subprocess.run(["./train.sh", args.dataset_id, latest_date])
 
 
+if __name__ == "__main__":
+    main()

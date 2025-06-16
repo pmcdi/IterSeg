@@ -31,7 +31,7 @@ def main():
     # Build paths
     data_dir = dirs.RAWDATA / args.dataset_id / f"{args.dataset_date}__{args.dataset_id}"
     proc_dir = dirs.PROCDATA / args.dataset_id / f"{args.dataset_date}__{args.dataset_id}"
-    config_path = dirs.CONFIGS / f"roi_{args.dataset_id}.yaml"
+    config_path = dirs.CONFIG / f"roi_{args.dataset_id}.yaml"
 
     # Validate paths
     assert data_dir.is_dir(), f"[ERROR] Input data directory not found: {data_dir}"
