@@ -26,7 +26,7 @@ def find_latest_date(dataset_id):
 
 
 def submit_sbatch(script: Path, args: list[str], logs_dir: Path, job_tag: str, dependency: str = None) -> str:
-    job_name = f"{script.stem}_{job_tag}"  # e.g., prepare_data_2025-06-16_14-30-00
+    job_name = f"{script.stem}_{job_tag}"  
     output_log = logs_dir / f"{job_name}.out"
     error_log = logs_dir / f"{job_name}.err"
 
@@ -73,8 +73,8 @@ def main():
     if (dirs.PROCDATA / args.dataset_id / f"{latest_date}__{args.dataset_id}").is_dir():
         print(f"[INFO] Data already preprocessed for {args.dataset_id} on {latest_date}")
     else:
-        prepare_script = dirs.SCRIPTS / "prepare_data.sh"
-        train_script = dirs.SCRIPTS / "train.sh"
+        prepare_script = dirs.SCRIPTS / "run_prepare_data.py"
+        train_script = dirs.SCRIPTS / "run_train.py"
         script_args = [args.dataset_id, latest_date]
 
         # Create logs/<latest_date>/ directory
@@ -84,7 +84,7 @@ def main():
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")  # e.g., 2025-06-16_14-30-00
         job_tag = f"{args.dataset_id}_{timestamp}"
 
-        prepare_job_id = submit_sbatch(prepare_script, script_args, dated_logs_dir, job_tag=timestamp)
+        prepare_job_id = submit_sbatch(prepare_script, script_args, dated_logs_dir, job_tag=job_tag)
         submit_sbatch(train_script, script_args, dated_logs_dir, job_tag=timestamp, dependency=prepare_job_id)
 
 if __name__ == "__main__":
