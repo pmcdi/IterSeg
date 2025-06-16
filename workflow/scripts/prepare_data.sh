@@ -13,7 +13,7 @@ conda activate iterseg
 
 # Ensure at least two positional arguments are given
 if [ "$#" -lt 2 ]; then
-  echo "Usage: $0 <dataset_id> <dataset_date> 
+  echo "Usage: $0 <dataset_id> <dataset_date>"
   exit 1
 fi
 
@@ -21,4 +21,6 @@ fi
 DATASET_ID="$1"
 DATASET_DATE="$2"
 
-python3 ./prepare_data.py "$DATASET_ID" "$DATASET_DATE" 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+python3 "$SCRIPT_DIR/prepare_data.py" "$DATASET_ID" "$DATASET_DATE" 

@@ -5,6 +5,7 @@
 
 *.pyc
 
+logs/
 
 **.nii.gz
 

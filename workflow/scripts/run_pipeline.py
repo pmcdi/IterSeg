@@ -1,5 +1,6 @@
 import argparse
 from datetime import datetime
+from pathlib import Path
 import subprocess
 
 from damply import dirs
@@ -22,7 +23,43 @@ def find_latest_date(dataset_id):
         if latest_date is None or date > latest_date:
             latest_date = date
     return latest_date.strftime("%Y-%m-%d")
-    
+
+
+def submit_sbatch(script: Path, args: list[str], logs_dir: Path, job_tag: str, dependency: str = None) -> str:
+    job_name = f"{script.stem}_{job_tag}"  # e.g., prepare_data_2025-06-16_14-30-00
+    output_log = logs_dir / f"{job_name}.out"
+    error_log = logs_dir / f"{job_name}.err"
+
+    cmd = [
+        "sbatch",
+        f"--job-name={job_name}",
+        f"--output={output_log}",
+        f"--error={error_log}"
+    ]
+
+    if dependency:
+        cmd.append(f"--dependency=afterok:{dependency}")
+
+    cmd.append(str(script))
+    cmd += args
+
+    try:
+        result = subprocess.run(
+            cmd,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        output = result.stdout.strip()
+        print(f"✅ Submitted {script.name}: {output}")
+        job_id = output.strip().split()[-1]
+        return job_id
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Failed to submit {script.name}")
+        print("STDOUT:\n", e.stdout)
+        print("STDERR:\n", e.stderr)
+        raise
 
 def main():
     parser = argparse.ArgumentParser(description="Run IterSeg pipeline on a given dataset.")
@@ -32,13 +69,23 @@ def main():
 
     latest_date = find_latest_date(args.dataset_id)
     print(f"[INFO] Latest date for {args.dataset_id} is {latest_date}")
-    
-    if dirs.PROCDATA / args.dataset_id / f"{latest_date}__{args.dataset_id}".is_dir():
+
+    if (dirs.PROCDATA / args.dataset_id / f"{latest_date}__{args.dataset_id}").is_dir():
         print(f"[INFO] Data already preprocessed for {args.dataset_id} on {latest_date}")
     else:
-        subprocess.run(["./prepare_data.sh", args.dataset_id, latest_date])
-        subprocess.run(["./train.sh", args.dataset_id, latest_date])
+        prepare_script = dirs.SCRIPTS / "prepare_data.sh"
+        train_script = dirs.SCRIPTS / "train.sh"
+        script_args = [args.dataset_id, latest_date]
 
+        # Create logs/<latest_date>/ directory
+        dated_logs_dir = dirs.LOGS / args.dataset_id / latest_date
+        dated_logs_dir.mkdir(parents=True, exist_ok=True)
+
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")  # e.g., 2025-06-16_14-30-00
+        job_tag = f"{args.dataset_id}_{timestamp}"
+
+        prepare_job_id = submit_sbatch(prepare_script, script_args, dated_logs_dir, job_tag=timestamp)
+        submit_sbatch(train_script, script_args, dated_logs_dir, job_tag=timestamp, dependency=prepare_job_id)
 
 if __name__ == "__main__":
     main()

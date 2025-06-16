@@ -1,4 +1,4 @@
-name: default
+name: iterseg
 channels:
 - conda-forge
 - nodefaults

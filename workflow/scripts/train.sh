@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=train
-#SBATCH --mem=164G
-#SBATCH --gres=gpu:v100:5
+#SBATCH --mem=84G
+#SBATCH --gres=gpu:v100:3
 #SBATCH -t 2-23:59:59
 #SBATCH -c 32
 #SBATCH -N 1
@@ -17,7 +17,7 @@ set -e
 
 # Ensure at least two positional arguments are given
 if [ "$#" -lt 2 ]; then
-  echo "Usage: $0 <dataset_id> <dataset_date> 
+  echo "Usage: $0 <dataset_id> <dataset_date>" 
   exit 1
 fi
 
@@ -25,4 +25,4 @@ fi
 DATASET_ID="$1"
 DATASET_DATE="$2"
 
-python3 ./train.py "$DATASET_ID" "$DATASET_DATE" 
+python3 ./train.py "$DATASET_ID" "$DATASET_DATE" --gpus 0 1 2 --folds 0 1 2
