@@ -8,6 +8,9 @@
 
 set -e  # Exit immediately if a command fails
 
+source ~/.bashrc
+conda activate iterseg
+
 # Ensure at least two positional arguments are given
 if [ "$#" -lt 2 ]; then
   echo "Usage: $0 <dataset_id> <dataset_date> 
