@@ -22,8 +22,8 @@ def main():
     parser.add_argument(
         "-ms", "--mask_saving_strategy",
         choices=["label_image", "sparse_mask", "region_mask"],
-        default="sparse_mask",
-        help="Mask saving strategy (default: sparse_mask)"
+        default="region_mask",
+        help="Mask saving strategy"
     )
 
     args = parser.parse_args()

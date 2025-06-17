@@ -17,8 +17,6 @@ def run_training_job(gpu: int, fold: int, dataset_id: str, env: dict, pretrained
     if pretrained:
         weights_path = (
             dirs.RESULTS / dataset_id / "latest"
-            / "Dataset001_raw_data"
-            / "nnUNetTrainer__nnUNetPlans__3d_fullres"
             / f"fold_{fold}"
             / "checkpoint_best.pth"
         )
@@ -68,6 +66,13 @@ def main():
         proc.wait()
 
     print("[INFO] All training jobs completed.")
+
+    dirs.RESULTS / args.dataset_id / "latest".symlink_to(
+        proc_dir / 
+        "nnUNet_results" / 
+        f"Dataset001_{args.dataset_date}__{args.dataset_id}" /
+        "nnUNetTrainer__nnUNetPlans__3d_fullres"
+    )
 
 
 if __name__ == "__main__":
