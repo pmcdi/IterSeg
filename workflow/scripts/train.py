@@ -22,7 +22,7 @@ def run_training_job(gpu: int, fold: int, dataset_id: str, env: dict, pretrained
         )
         assert weights_path.exists(), f"[ERROR] Pretrained weights not found: {weights_path}"
 
-        cmd.append("-pretrained")
+        cmd.append("--pretrained_weights")
         cmd.append(weights_path.as_posix())
     else:
         cmd.append("--c")
