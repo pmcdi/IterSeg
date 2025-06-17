@@ -67,7 +67,7 @@ def main():
 
     print("[INFO] All training jobs completed.")
 
-    dirs.RESULTS / args.dataset_id / "latest".symlink_to(
+    (dirs.RESULTS / args.dataset_id / "latest").symlink_to(
         proc_dir / 
         "nnUNet_results" / 
         f"Dataset001_{args.dataset_date}__{args.dataset_id}" /
