@@ -46,6 +46,7 @@ def main():
         "-m", args.modalities,
         "-ryaml", config_path.as_posix(),
         "-ms", args.mask_saving_strategy,
+        "--update-crawl"
     ]
 
     print(f"[INFO] Running command:\n{' '.join(cmd)}")

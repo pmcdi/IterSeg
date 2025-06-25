@@ -26,8 +26,8 @@ def main():
     dataset_date = sys.argv[2]
 
     # Optional: default values for GPUs and folds
-    gpus = [0, 1, 2]
-    folds = [0, 1, 2]
+    gpus = [0, 2]
+    folds = [0, 2]
 
     # Path to train.py (assumed to be in same directory as this script)
     train_py = dirs.SCRIPTS / "train.py"

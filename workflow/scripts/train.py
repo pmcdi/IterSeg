@@ -22,7 +22,7 @@ def run_training_job(gpu: int, fold: int, dataset_id: str, env: dict, pretrained
         )
         assert weights_path.exists(), f"[ERROR] Pretrained weights not found: {weights_path}"
 
-        cmd.append("--pretrained_weights")
+        cmd.append("-pretrained_weights")
         cmd.append(weights_path.as_posix())
     else:
         cmd.append("--c")
@@ -69,21 +69,21 @@ def main():
 
     
     # Create symbolic link
-    latest_symlink = dirs.RESULTS / args.dataset_id / "latest"
-    target_dir = (
-        proc_dir /
-        "nnUNet_results" /
-        f"Dataset001_{args.dataset_date}__{args.dataset_id}" /
-        "nnUNetTrainer__nnUNetPlans__3d_fullres"
-    )
+    #latest_symlink = dirs.RESULTS / args.dataset_id / "latest"
+    #target_dir = (
+    #    proc_dir /
+    #    "nnUNet_results" /
+    #    f"Dataset001_{args.dataset_date}__{args.dataset_id}" /
+    #    "nnUNetTrainer__nnUNetPlans__3d_fullres"
+    #)
 
     # Clean up any existing symlink or directory
-    if latest_symlink.exists() or latest_symlink.is_symlink():
-        latest_symlink.unlink()
+    #if latest_symlink.exists() or latest_symlink.is_symlink():
+    #    latest_symlink.unlink()
 
-    latest_symlink.symlink_to(target_dir)
+    #latest_symlink.symlink_to(target_dir)
 
-    print(f"[INFO] Symlink created: {latest_symlink} -> {target_dir}")
+    #print(f"[INFO] Symlink created: {latest_symlink} -> {target_dir}")
 
 
 if __name__ == "__main__":
