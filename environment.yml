@@ -1,4 +1,4 @@
-name: default
+name: iterseg
 channels:
 - conda-forge
 - nodefaults
@@ -7,4 +7,6 @@ dependencies:
 - pip
 - pip:
   - nnunetv2>=2.6.0, <3
+  - med-imagetools>=2.9.1, <3
+  - damply>=0.16.0, <0.17
 
